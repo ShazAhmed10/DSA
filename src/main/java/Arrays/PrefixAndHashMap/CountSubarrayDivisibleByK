@@ -1,0 +1,12 @@
+Q. Given an array arr[] and an integer k, count the number of subarrays whose sum is divisible by k.
+
+Example 1:-
+arr = [4, 5, 0, -2, -3, 1]
+k = 5
+Output: 7
+
+Solution:-
+The solution follows the arithmetic equation i.e., if we consider pf[i] = sum[0...i] = a & pf[j] = sum[0...j] = b where i<j
+=> (a - b) % k = 0
+=> (a % k) - (b % k) = 0
+=> a % k = b % k
