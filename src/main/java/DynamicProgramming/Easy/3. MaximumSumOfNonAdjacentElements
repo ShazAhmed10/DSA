@@ -19,3 +19,4 @@ Use the pick and not pick recursive technique and then optimise it through DP.
 Naive approach -> TC = O(2^n), SC = O(n)
 Memoization -> TC = O(n), SC = O(n) + O(n) (recursion stack space)
 Tabulation -> TC = O(n), SC = O(n)
+Tabulation_SpaceOptimisation -> TC = O(n), SC = O(1)
