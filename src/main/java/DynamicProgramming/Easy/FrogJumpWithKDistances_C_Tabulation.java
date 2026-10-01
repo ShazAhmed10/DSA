@@ -1,8 +1,8 @@
-package DynamicProgramming;
+package DynamicProgramming.Easy;
 
 import java.util.*;
 
-public class FrogJumpWithKDistances_Tabulation {
+public class FrogJumpWithKDistances_C_Tabulation {
     public int frogJump(int[] heights, int k) {
         int n = heights.length;
         int[] dp = new int[n+1];

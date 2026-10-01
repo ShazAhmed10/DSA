@@ -1,6 +1,6 @@
-package DynamicProgramming;
+package DynamicProgramming.Easy;
 
-public class FrogJumpWithKDistances_RecursiveNaive {
+public class FrogJumpWithKDistances_A_RecursiveNaive {
     public int frogJump(int[] heights, int k) {
         int n = heights.length;
         int overallMin = Integer.MAX_VALUE;

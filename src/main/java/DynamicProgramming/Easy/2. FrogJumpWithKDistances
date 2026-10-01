@@ -24,5 +24,8 @@ Solution:
 To solve this is by recursion. As overlapping sub problems exist hence we can use DP's memoization and tabulation
 techniques to solve it.
 
+Naive approach -> TC = O(Kᴺ), SC = O(N)
+Each call makes up to K recursive calls, and the depth is still up to N (along the jump-1 path),
+so there are at most Kᴺ calls.
 Memoization -> TC = O(n*k), SC = O(n) + O(n) (recursion stack space)
 Tabulation -> TC = O(n*k), SC = O(n)

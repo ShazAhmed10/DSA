@@ -1,8 +1,8 @@
-package DynamicProgramming;
+package DynamicProgramming.Easy;
 
 import java.util.*;
 
-public class FrogJump_Memoization {
+public class FrogJump_A_Memoization {
     public int frogJump(int[] heights) {
         int n = heights.length;
         int[] dp = new int[n+1];

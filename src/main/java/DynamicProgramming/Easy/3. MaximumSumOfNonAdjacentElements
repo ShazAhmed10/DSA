@@ -1,0 +1,21 @@
+Given an integer array nums of size n. Return the maximum sum possible using the elements of nums such that no two
+elements taken are adjacent in nums.
+
+Example 1:
+Input: nums = [1, 2, 4]
+Output: 5
+Explanation:
+[1, 2, 4], the underlined elements are taken to get the maximum sum.
+
+Example 2:
+Input: nums = [2, 1, 4, 9]
+Output: 11
+Explanation:
+[2, 1, 4, 9], the underlined elements are taken to get the maximum sum.
+
+Solution:
+Use the pick and not pick recursive technique and then optimise it through DP.
+
+Naive approach -> TC = O(2^n), SC = O(n)
+Memoization -> TC = O(n), SC = O(n) + O(n) (recursion stack space)
+Tabulation -> TC = O(n), SC = O(n)

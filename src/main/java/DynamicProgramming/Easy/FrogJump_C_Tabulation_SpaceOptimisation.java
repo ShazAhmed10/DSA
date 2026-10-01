@@ -1,6 +1,6 @@
-package DynamicProgramming;
+package DynamicProgramming.Easy;
 
-public class FrogJump_Tabulation_SpaceOptimisation {
+public class FrogJump_C_Tabulation_SpaceOptimisation {
     public int frogJump(int[] heights) {
         int n = heights.length;
         int prev = 0;
