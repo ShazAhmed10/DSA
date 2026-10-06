@@ -1,4 +1,4 @@
-package DynamicProgramming.Easy;
+package DynamicProgramming.A2Z.Medium;
 
 public class FrogJump_C_Tabulation_SpaceOptimisation {
     public int frogJump(int[] heights) {

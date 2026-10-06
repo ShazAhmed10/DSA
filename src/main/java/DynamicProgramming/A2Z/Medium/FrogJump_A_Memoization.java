@@ -1,4 +1,4 @@
-package DynamicProgramming.Easy;
+package DynamicProgramming.A2Z.Medium;
 
 import java.util.*;
 

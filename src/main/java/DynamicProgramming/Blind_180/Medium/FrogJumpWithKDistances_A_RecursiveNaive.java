@@ -1,4 +1,4 @@
-package DynamicProgramming.Easy;
+package DynamicProgramming.Blind_180.Medium;
 
 public class FrogJumpWithKDistances_A_RecursiveNaive {
     public int frogJump(int[] heights, int k) {

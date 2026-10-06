@@ -1,4 +1,4 @@
-package DynamicProgramming.Easy;
+package DynamicProgramming.Blind_180.Medium;
 
 public class MaximumSumOfNonAdjacentElements_C_Tabulation_SpaceOptimisation {
     public int nonAdjacent(int[] nums) {

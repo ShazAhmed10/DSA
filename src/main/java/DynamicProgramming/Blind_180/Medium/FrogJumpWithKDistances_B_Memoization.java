@@ -1,4 +1,4 @@
-package DynamicProgramming.Easy;
+package DynamicProgramming.Blind_180.Medium;
 
 import java.util.*;
 

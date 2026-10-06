@@ -1,4 +1,4 @@
-package DynamicProgramming.Easy;
+package DynamicProgramming.Blind_180.Medium;
 
 public class NinjaTraining_C_Tabulation {
     public int ninjaTraining(int[][] matrix) {
