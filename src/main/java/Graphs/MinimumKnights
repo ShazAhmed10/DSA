@@ -8,7 +8,7 @@ output : 3
 (1,3) to (5,0)
 steps : (1,3) -> (3,4) -> (4,2) -> (5,0)
 
-Solution:-
+Approach:
 Use BFS on Graph
 Note: DP solution is not possible as you would end up visiting same cells again. Hence, Graph approach provides a natural way of maintaining
 a visited array and solving this problem.
