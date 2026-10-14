@@ -1,0 +1,44 @@
+You are given an array of integers stones where stones[i] is the weight of the ith stone.
+We are playing a game with the stones. On each turn, we choose any two stones and smash them together.
+Suppose the stones have weights x and y with x <= y. The result of this smash is:
+If x == y, both stones are destroyed, and
+If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x.
+At the end of the game, there is at most one stone left.
+Return the smallest possible weight of the left stone. If there are no stones left, return 0.
+
+Example 1:
+Input: stones = [2,7,4,1,8,1]
+Output: 1
+Explanation:
+We can combine 2 and 4 to get 2, so the array converts to [2,7,1,8,1] then,
+we can combine 7 and 8 to get 1, so the array converts to [2,1,1,1] then,
+we can combine 2 and 1 to get 1, so the array converts to [1,1,1] then,
+we can combine 1 and 1 to get 0, so the array converts to [1], then that's the optimal value.
+
+Example 2:
+Input: stones = [31,26,33,21,40]
+Output: 5
+
+Constraints:
+1 <= stones.length <= 30
+1 <= stones[i] <= 100
+
+Approach:
+This problem is nothing but Partition a Set Into Two Subsets with Min Difference in disguise. To learn an another
+approach in solving such type of problems the other approach is used here. Instead of finding the closest subset
+to totalSum/2 here we find whether for every sum from 0 to totalSum/2 if a subset exists, if so we mark it
+true otherwise as false. Later a scan is carried from totalSum/2 to 0 for the nth row to find the max subset which
+when caught the scan ends. There are two base cases here one when the capacity or the sum is 0 then we return true as
+we come to a conclusion that a subset is present for this sum and from here we start building the answer even though
+there never comes a sum = 0 according to the constraints. The second base is when the number of elements go to 0 then
+we return false as the capacity still exists.
+
+Naive approach -> TC = O(sum/2 * 2^n) = O(sum * 2^n), SC = O(n) (recursion stack space)
+Each call makes up to 2 recursive calls, and every recursive call can goes n levels deep. Also, an extra loop is required
+to check all the sums(i.e sum/2)
+Memoization -> TC = O(n*sum), SC = O(n*sum) + O(n) (recursion stack space) = O(n*sum)
+Even though there is an extra loop for the sum. Every sum uses the same dp and does not visit the already visited cells.
+Tabulation -> TC = O(n*sum), SC = O(n*sum)
+Tabulation_SpaceOptimisation_1 -> TC = O(n*sum), SC = O(2*sum) = O(sum)
+Tabulation_SpaceOptimisation_2 -> TC = O(n*sum), SC = O(sum)
+Tabulation_SpaceOptimisation_3 -> TC = O(n*sum), SC = O(sum)
