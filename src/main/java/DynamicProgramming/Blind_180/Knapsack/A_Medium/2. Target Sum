@@ -1,0 +1,43 @@
+You are given an integer array nums and an integer target.
+You want to build an expression out of nums by adding one of the symbols '+' and '-' before each integer in nums and
+then concatenate all the integers.
+For example, if nums = [2, 1], you can add a '+' before 2 and a '-' before 1 and concatenate them to build the
+expression "+2-1". Return the number of different expressions that you can build, which evaluates to target.
+
+Example 1:
+Input: nums = [1,1,1,1,1], target = 3
+Output: 5
+Explanation: There are 5 ways to assign symbols to make the sum of nums be target 3.
+-1 + 1 + 1 + 1 + 1 = 3
++1 - 1 + 1 + 1 + 1 = 3
++1 + 1 - 1 + 1 + 1 = 3
++1 + 1 + 1 - 1 + 1 = 3
++1 + 1 + 1 + 1 - 1 = 3
+
+Example 2:
+Input: nums = [1], target = 1
+Output: 1
+
+Constraints:
+
+1 <= nums.length <= 20
+0 <= nums[i] <= 1000
+0 <= sum(nums[i]) <= 1000
+-1000 <= target <= 1000
+
+Approach 1:
+Is the backward approach where we start with the problem having n numbers and curr_sum = 0 to reach the target. Here
+pick or not pick style won't work as there is a requirement to include all the numbers of the array and assign them
+each with + or - sign. The base case to find the target sum depends on both the n going to 0 and the curr_sum reaching
+the target. If the elements are covered before reaching the required target then there is no way from this branch. When
+building the dp we need to keep in mind that the index might go -ve and hence we need to consider the size of the dp in
+the number of columns to be 2 * total_sum_of_array such that we can shift the -ve indexes by just adding the
+total_sum_of_array to each index. In tabulation a special carefulness needs to be shown in handling indexes that might
+go out of bound. Finally, the answer lies at dp[n][totalSum] which is according to the definition of the state of each
+cell of our dp and to the problem statement that we start to solve.
+
+Naive approach -> TC = O(2^n), SC = O(n) (recursion stack space)
+Each call makes up to 2 recursive calls, and every recursive call can goes n levels deep.
+Memoization -> TC = O(n * totalSum), SC = O(n * totalSum) + O(n) (recursion stack space) = O(n * totalSum)
+Tabulation -> TC = O(n * totalSum), SC = O(n * totalSum)
+Tabulation_SpaceOptimisation -> TC = O(n * totalSum), SC = O(2 * totalSum) = O(totalSum)
