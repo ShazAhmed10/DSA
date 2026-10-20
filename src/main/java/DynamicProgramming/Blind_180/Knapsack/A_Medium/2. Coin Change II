@@ -1,0 +1,58 @@
+You are given an integer array coins representing coins of different denominations and an integer amount representing a
+total amount of money. Return the number of combinations that make up that amount. If that amount of money cannot be
+made up by any combination of the coins, return 0. You may assume that you have an infinite number of each kind of coin.
+The final answer is guaranteed to fit into a signed 32-bit integer.
+
+Example 1:
+Input: amount = 5, coins = [1,2,5]
+Output: 4
+Explanation: there are four ways to make up the amount:
+5=5
+5=2+2+1
+5=2+1+1+1
+5=1+1+1+1+1
+
+Example 2:
+Input: amount = 3, coins = [2]
+Output: 0
+Explanation: the amount of 3 cannot be made up just with coins of 2.
+
+Example 3:
+Input: amount = 10, coins = [10]
+Output: 1
+
+Constraints:
+1 <= coins.length <= 300
+1 <= coins[i] <= 5000
+All the values of coins are unique.
+0 <= amount <= 5000
+
+Approach:
+This is a classic unbounded knapsack problem where we make two recursive calls of pick and notPick. The unbounded
+nature is shown when picking an element where we don't decrease the elements after picking. The base case stops the
+recursion when the target is reached where there will be one way and if before reaching the target n goes to 0 then
+there is no way. In tabulation space optimisation we now see that there is a requirement of using the current dp row
+when picking hence we need to keep the inner loop from lower to higher index. Also, as this is the direction of the loop
+the condition on the pick i.e coins[i-1] <= j (capacity) gets absorbed in the loop condition by starting with the
+coins[i-1] which will be the current capacity that we start with and the loop will end at the target capacity.
+
+Naive approach -> TC = O(2^n + 2^targetAmount) = O(2^(n + targetAmount), SC = O(n + targetAmount) (recursion stack space)
+Each call makes up to 2 recursive calls, and every recursive call can go n levels deep + targetAmount levels deep as when
+we analyse the recursive tree for the pick call then n here is not decreasing instead the targetAmount decreases. If we
+consider the lowest value of the coins for the targetAmount which is 1 then this recursive branch goes targetAmount
+levels deep.
+Memoization -> TC = O(n * targetAmount), SC = O(n * targetAmount) + O(n + targetAmount) (recursion stack space)
+= O(n * targetAmount)
+Tabulation -> TC = O(n * targetAmount), SC = O(n * targetAmount)
+Tabulation_SpaceOptimisation_1 -> TC = O(n * targetAmount), SC = O(2 * targetAmount) = O(targetAmount)
+Tabulation_SpaceOptimisation_2 -> TC = O(n * targetAmount), SC = O(targetAmount)
+Tabulation_SpaceOptimisation_3 -> TC = O(n * targetAmount), SC = O(targetAmount)
+
+Note:
+This problem finds all the combinations of the ways for forming the target from the given set of coins where the
+direction is fixed meaning no coin is again considered once used which points to the nature of combination where order
+does not matter. But if asked for all ways where order does matter which will be a permutation question then the
+recursive call and the dp state will be single. Meaning only the target will change recursively with a loop over all
+the coins for each new decremented target or capacity. In this way every coin will be considered for each target(capacity).
+There will be no pick and notPick recursive calls but only a single call if able to consider a coin. The dp will be a
+1D array and in tabulation the amount loop will be outside and the coins loop will be inside.

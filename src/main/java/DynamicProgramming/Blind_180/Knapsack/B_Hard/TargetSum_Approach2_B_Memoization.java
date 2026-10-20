@@ -1,4 +1,4 @@
-package DynamicProgramming.Blind_180.Knapsack.A_Medium;
+package DynamicProgramming.Blind_180.Knapsack.B_Hard;
 
 import java.util.*;
 

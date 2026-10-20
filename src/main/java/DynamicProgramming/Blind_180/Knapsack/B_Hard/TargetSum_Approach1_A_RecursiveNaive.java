@@ -1,4 +1,4 @@
-package DynamicProgramming.Blind_180.Knapsack.A_Medium;
+package DynamicProgramming.Blind_180.Knapsack.B_Hard;
 
 public class TargetSum_Approach1_A_RecursiveNaive {
     public int findTargetSumWays(int[] nums, int target) {

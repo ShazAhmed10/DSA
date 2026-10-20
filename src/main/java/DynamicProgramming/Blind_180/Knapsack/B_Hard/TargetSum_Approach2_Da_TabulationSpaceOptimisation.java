@@ -1,6 +1,6 @@
-package DynamicProgramming.Blind_180.Knapsack.A_Medium;
+package DynamicProgramming.Blind_180.Knapsack.B_Hard;
 
-public class TargetSum_Approach2_C_Tabulation {
+public class TargetSum_Approach2_Da_TabulationSpaceOptimisation {
     public int findTargetSumWays(int[] nums, int target) {
         int n = nums.length;
         int total = 0;
@@ -18,21 +18,27 @@ public class TargetSum_Approach2_C_Tabulation {
         }
 
         int p = redEqSum/2;
-        int[][] dp = new int[n+1][p+1];
+        int[] prev = new int[p+1];
+        int[] curr = new int[p+1];
 
-        dp[0][0] = 1;
+        prev[0] = 1;
         for(int i=1; i<=n; i++){
             for(int j=0; j<=p; j++){
                 int pick = 0;
                 if(nums[i-1] <= j){
-                    pick = dp[i-1][j - nums[i-1]];
+                    pick = prev[j - nums[i-1]];
                 }
-                int notPick = dp[i-1][j];
+                int notPick = prev[j];
 
-                dp[i][j] = pick + notPick;
+                curr[j] = pick + notPick;
             }
+
+            int[] temp = prev;
+            prev = curr;
+            curr = temp;
+
         }
 
-        return dp[n][p];
+        return prev[p];
     }
 }
