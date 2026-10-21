@@ -36,8 +36,8 @@ For elements, curr array to the left and the prev arr in the curr positions the 
 direction of the inner loop but for the prev array to the left which gets overwritten for the condition char a == char b
 it needs to be preserved by saving it two a variable before overwriting.
 
-Naive approach -> TC = O(2^n + 2^m) = O(2^(n + m), SC = O(n + m) (recursion stack space)
-The recursive calls go two, n + m levels deep hence such complexity.
+Naive approach -> TC = O(2^n + 2^m) = O(2^(n + m)), SC = O(n + m) (recursion stack space)
+The two recursive calls go, n + m levels deep hence such complexity.
 Memoization -> TC = O(n * m), SC = O(n * m) + O(n + m) (recursion stack space) = O(n * m)
 Tabulation -> TC = O(n * m), SC = O(n * m)
 Tabulation_SpaceOptimisation_1 -> TC = O(n * m), SC = O(2 * m) = O(m)
