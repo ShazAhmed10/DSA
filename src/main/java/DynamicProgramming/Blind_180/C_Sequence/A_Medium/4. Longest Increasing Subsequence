@@ -1,0 +1,67 @@
+Given an integer array nums, return the length of the longest strictly increasing subsequence.
+
+Example 1:
+Input: nums = [10,9,2,5,3,7,101,18]
+Output: 4
+Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+
+Example 2:
+Input: nums = [0,1,0,3,2,3]
+Output: 4
+
+Example 3:
+Input: nums = [7,7,7,7,7,7,7]
+Output: 1
+
+Constraints:
+1 <= nums.length <= 2500
+-104 <= nums[i] <= 104
+
+Approach 1:
+In the first approach we take two indexes last and curr index. The last to keep a track of the last index we picked
+(if picked or else it will have the initialisation value i.e. -1) then the curr to keep track of the curr element we are
+at. If the condition nums[lastIndex] < nums [currIndex] is met then the element is picked meaning, we increase the count
+by 1 and the remaining part is solved recursively. Also, a not pick part runs whether the condition is met or not,
+recursively we move the curr and check. The max out of the two will be returned. As there is a usage of -1 and with
+respect to the base case we need a +1 increase in the dp dimensions during memo and tab. The -1 usage would lead to a
+shifting in the column values by 1.
+
+Note:
+We can also do this in the reverse direction where we would run a loop for every element considered as the end of the LIS
+and keep moving two pointers again in the same pick and not pick fashion of the approach 1 in the reverse direction and
+find the max. The recursive naive version of this is present in the solution. The time complexity for the naive solution
+will still be 2^n as the loop does a constant work where for every iteration of the loop up to 2^n work is done hence an
+addition of 2^0 + 2^1 + ... + 2^n = 2^n takes place.
+
+Naive approach -> TC = O(2^n), SC = O(n) (recursion stack space)
+Memoization -> TC = O(n^2), SC = O(n^2) + O(n) (recursion stack space) = O(n^2)
+Tabulation -> TC = O(n^2), SC = O(n^2)
+Tabulation_SpaceOptimisation_1 -> TC = O(n^2), SC = O(2 * n) = O(n)
+Tabulation_SpaceOptimisation_2 -> TC = O(n^2), SC = O(n)
+
+Approach 2:
+In the second approach we solve this problem by seeing the problem as what is the LIS if each element is considered
+as the end of any valid candidate for LIS. So we find the LIS for every element of the array considering it to be the
+end of the LIS. This way we only have to maintain a single state in the recursion. We run two loops where the first one
+moves considering every element as last part of the LIS and the loop takes the max out of all. The second loop that runs
+inside the recursive function checking for the next best part of the LIS (the recursive sub problems solve for the 2nd
+last element then the next call for the 3rd last element and so on) going only till i and by taking the max in the loop.
+If there is an element satisfying the condition nums[j] < nums[i] then 1 + f(j) is taken, else if the condition is not
+met then the default value is 1 since the current element contributes it's length to the current LIS candidate. The second
+loop also takes care of the base case hence there is no need of a separate base case. The memo and tab versions become
+simple to write and this approach is also used in other problems.
+
+Note:
+1. Here the naive approach comes out to have a TC of 2^n because for every i the j loop works double it had the last time
+so from the reduction of the recurrence relation we see a series of 2^0 + 2^1 + ... + 2^n = 2^n work being done hence
+the complexity.
+
+2. Print the LIS. Add a parent[i] array that records which j gave dp[i] its value (set it whenever currLength improves, and
+use parent[i] = i or -1 when nums[i] is on its own). Then start from the index with the largest dp, and follow parent back
+to rebuild the sequence (in reverse).
+
+Naive approach -> TC = O(2^n), SC = O(n) (recursion stack space)
+Memoization -> TC = O(n^2), SC = O(n) + O(n) (recursion stack space) = O(n)
+Tabulation -> TC = O(n^2), SC = O(n)
+
+Approach 3: (Binary Search)
