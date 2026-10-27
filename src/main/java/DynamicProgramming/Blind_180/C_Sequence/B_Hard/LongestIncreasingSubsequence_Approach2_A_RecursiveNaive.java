@@ -1,6 +1,6 @@
-package DynamicProgramming.Blind_180.C_Sequence.A_Medium;
+package DynamicProgramming.Blind_180.C_Sequence.B_Hard;
 
-public class LongestIncreasingSubsequence_Approach2_B_Memoization {
+public class LongestIncreasingSubsequence_Approach2_A_RecursiveNaive {
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];
@@ -14,10 +14,6 @@ public class LongestIncreasingSubsequence_Approach2_B_Memoization {
     }
 
     public int helper(int[] nums, int i, int[] dp){
-        if(dp[i] != 0){
-            return dp[i];
-        }
-
         int currLength = 1;
         for(int j=0; j<i; j++){
             if(nums[j] < nums[i]){

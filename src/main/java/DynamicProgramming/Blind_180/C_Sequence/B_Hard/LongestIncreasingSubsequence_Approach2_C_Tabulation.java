@@ -1,4 +1,4 @@
-package DynamicProgramming.Blind_180.C_Sequence.A_Medium;
+package DynamicProgramming.Blind_180.C_Sequence.B_Hard;
 
 public class LongestIncreasingSubsequence_Approach2_C_Tabulation {
     public int lengthOfLIS(int[] nums) {

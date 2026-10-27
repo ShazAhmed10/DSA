@@ -1,4 +1,4 @@
-package DynamicProgramming.Blind_180.C_Sequence.A_Medium;
+package DynamicProgramming.Blind_180.C_Sequence.B_Hard;
 
 import java.util.Arrays;
 
