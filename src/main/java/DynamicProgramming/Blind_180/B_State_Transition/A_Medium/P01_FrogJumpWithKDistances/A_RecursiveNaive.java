@@ -1,0 +1,33 @@
+package DynamicProgramming.Blind_180.B_State_Transition.A_Medium.P01_FrogJumpWithKDistances;
+
+public class A_RecursiveNaive {
+    public int frogJump(int[] heights, int k) {
+        int n = heights.length;
+        int overallMin = Integer.MAX_VALUE;
+        return helper(n,heights,k);
+    }
+
+    public int helper(int n, int[] heights, int k){
+        if(n == 1){
+            return 0;
+        }
+
+        int currMin = Integer.MAX_VALUE;
+        for(int i=1; i<=k; i++){
+            if(n > i){
+                currMin = Math.min(currMin, helper(n-i, heights, k) + Math.abs(heights[n-1] - heights[n-1-i]));
+            }
+            else {
+                break;
+            }
+        }
+
+        return currMin;
+    }
+
+    public static void main(String[] args) {
+        A_RecursiveNaive solution = new A_RecursiveNaive();
+        System.out.println(solution.frogJump(new int[]{10, 5, 20, 0, 15}, 2) + " (expected 15)");
+        System.out.println(solution.frogJump(new int[]{15, 4, 1, 14, 15}, 3) + " (expected 2)");
+    }
+}
