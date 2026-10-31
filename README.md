@@ -86,7 +86,7 @@ patterns/                             ← techniques that apply across problems
 
 | # | Problem | Level | Key idea | TC | SC | Revisit |
 |---|---|---|---|---|---|---|
-| 1 | [Count Subarrays with Sum Divisible by K](src/main/java/Arrays/PrefixAndHashMap/P01_CountSubarrayDivisibleByK/) |  | Two prefix sums with the same remainder mod k bound a divisible subarray; count remainders in a map | O(n) | O(k) |  |
+| 1 | [Count Subarrays with Sum Divisible by K](src/main/java/Arrays/PrefixAndHashMap/P01_CountSubarrayDivisibleByK/) |  | Two prefix sums with the same remainder mod k bound a divisible subarray; count remainders in a map | O(n) | O(min(n, k)) |  |
 
 ### Graphs
 

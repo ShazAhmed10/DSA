@@ -39,16 +39,16 @@ src/main/java/<Topic>/<Sheet>/<Category>/<Difficulty>/P<NN>_<ProblemName>/
 
 Match the existing problem READMEs exactly:
 
-```markdown
+~~~markdown
 # <Problem Name>
 
 [LeetCode <number>](<link>) · <Sheet> DP · <Category> · <Difficulty>
 
 ## Problem
 
-\`\`\`text
+```text
 <statement, examples, constraints>
-\`\`\`
+```
 
 ## Solutions
 
@@ -83,7 +83,7 @@ Each file has a `main` that runs the examples and prints actual vs expected.
 ## Related
 - <similar problems in the repo, as relative links>
 - Pattern: [<name>](<relative path to /patterns/...md>)
-```
+~~~
 
 Rules:
 - **Mistakes** is the most important section. Record real bugs and complexity corrections from the conversation. Never invent mistakes; if there were none, write "None recorded."
