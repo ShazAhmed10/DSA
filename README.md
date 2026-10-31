@@ -94,6 +94,12 @@ patterns/                             ← techniques that apply across problems
 |---|---|---|---|---|---|---|
 | 1 | [Minimum Knight Moves to Reach a Target](src/main/java/Graphs/P01_MinimumKnights/) |  | Each square is a node, each knight move an edge; BFS gives the shortest number of moves | O(n²) | O(n²) |  |
 
-## Adding a new problem
+## Practice workflow
 
-Use the `dsa-repo-entry` skill (in [`.claude/skills/`](.claude/skills/dsa-repo-entry/SKILL.md)): it creates the folder, the solution files with example `main`s, the README in the same format, and the row in this table.
+Skills in [`.claude/skills/`](.claude/skills/) (also saved to my Claude account, so they work in any chat):
+
+| Skill | Say | What it does |
+|---|---|---|
+| [`dsa-repo-entry`](.claude/skills/dsa-repo-entry/SKILL.md) | "add this to my repo" | Creates the problem folder, solution files with example `main`s, the README and the row in this index |
+| [`dsa-revise`](.claude/skills/dsa-revise/SKILL.md) | "let's revise" / "quiz me on knapsack" | Active-recall quiz from my own READMEs and Mistakes sections; logs scores in `revision-log.md` |
+| [`dsa-mock`](.claude/skills/dsa-mock/SKILL.md) | "mock interview, sequence DP, 45 min" | Timed interview on an unseen problem with one hint max, then a scorecard |
