@@ -10,7 +10,7 @@ Quiz the user on problems they have already solved, using their own notes in git
 ## 1. Load the repo
 
 - If a shell is available: `git clone --depth 1 https://github.com/ShazAhmed10/DSA` (public repo).
-- Otherwise read files from the GitHub page for the repo, or ask the user to paste the problem's README.
+- Otherwise read the project's synced repo files, the GitHub page for the repo, or ask the user to paste the problem's README.
 - Read the root `README.md` index (tables of problems with key idea, TC/SC, Revisit) and `revision-log.md` if it exists.
 
 ## 2. Pick problems
@@ -19,9 +19,18 @@ Quiz the user on problems they have already solved, using their own notes in git
 - Otherwise pick 3: problems never revised first, then the oldest last-revised, preferring ones whose README has a long "Mistakes I made" section or a previous "Shaky"/"Forgot" score.
 - Say which problems you picked in one line, then start with the first.
 
-## 3. Quiz one problem at a time
+## 3. Summary first (from memory)
 
-Show only the **Problem** section (statement, examples, constraints). Then ask, one question at a time, waiting for each answer:
+Show only the **Problem** section (statement, examples, constraints). Then:
+
+- **If the README has no "My summary" section:** ask the user to write one from memory — 4–6 lines: key idea, state and recurrence in their own words, the mistake they're most likely to repeat, and how they'd recognise the pattern. Don't help write it.
+- **If it already has one:** ask them to write a fresh one from memory anyway, then compare it with their earlier summary afterwards.
+
+Never write, draft or complete the summary for them.
+
+## 4. Quiz one problem at a time
+
+After the summary, ask only about what it left out or got wrong, one question at a time, waiting for each answer:
 
 1. What is the state? (`f(...)` = one sentence)
 2. What are the choices and the recurrence?
@@ -37,7 +46,13 @@ Rules:
 
 Score each problem: **Solid** (recalled state, recurrence, base cases and complexity with at most one nudge), **Shaky** (needed several nudges or got one part wrong), **Forgot** (couldn't reconstruct the state).
 
-## 4. Wrap up
+## 5. Save the summary
+
+- If the README had no "My summary": add one right after the Problem section, with the user's text **word for word** and the note `> Written by me from memory during revision on <YYYY-MM-DD>, unedited.`
+- If it had one: keep the old one and add the new one below it as `### Revision <YYYY-MM-DD>`, word for word, so they can see how their understanding changed. Don't edit either.
+- If they want to fix their summary after the comparison, use their corrected words, not yours.
+
+## 6. Wrap up
 
 - One-line summary per problem with its score and the single thing to remember.
 - Patterns to reread: link the matching `/patterns/*.md` note for anything that was Shaky or Forgot.
@@ -45,5 +60,5 @@ Score each problem: **Solid** (recalled state, recurrence, base cases and comple
 
   `| <YYYY-MM-DD> | <Problem> | <Solid/Shaky/Forgot> | <one-line note> |`
 
-  With push access, ask once whether to commit it (`Revision: <date>`) and push; otherwise give the rows to paste.
+- With push access, ask once whether to commit the summaries and the log (`Revision: <date>`) on a branch and open a pull request; otherwise give the text to paste and the exact paths.
 - Suggest when to revisit: Forgot → in 2 days, Shaky → in a week, Solid → in 3 weeks.

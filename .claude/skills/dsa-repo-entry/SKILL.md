@@ -7,7 +7,18 @@ description: Use when the user has finished a DSA problem and asks to add it to 
 
 Turns a finished problem from the current conversation into a consistent entry in the DSA repo (github.com/ShazAhmed10/DSA, Java 21, Maven layout). Every existing problem follows this format; new ones must match it.
 
-## Before writing anything
+## Step 0: the user's own summary comes first
+
+Before writing anything, check whether the user has written their own summary of the problem in this conversation. If not, ask for it and wait:
+
+> Before I add it: write 4–6 lines from memory, without scrolling up — the key idea that unlocked it, the state and recurrence in your own words, the mistake you're most likely to repeat, and what would help you recognise this pattern next time.
+
+Rules for the summary:
+- **Never write it for the user**, offer a draft, or fill in parts they left out. If they ask you to write it, explain briefly that writing it themselves is the point, and wait.
+- Include it in the README **word for word**, under "My summary" — no polishing, rephrasing or grammar fixes.
+- After they write it, point out only what is **wrong** or **missing** compared with the conversation (in your reply, not in the README). If they choose to revise it, use their revised words.
+
+## Before writing anything else
 
 Collect from the conversation:
 - Problem name, platform number and link if known, statement, examples, constraints
@@ -50,6 +61,12 @@ Match the existing problem READMEs exactly:
 <statement, examples, constraints>
 ```
 
+## My summary
+
+> Written by me from memory right after solving, unedited.
+
+<the user's summary, word for word>
+
 ## Solutions
 
 Each file has a `main` that runs the examples and prints actual vs expected.
@@ -86,8 +103,8 @@ Each file has a `main` that runs the examples and prints actual vs expected.
 ~~~
 
 Rules:
-- **Mistakes** is the most important section. Record real bugs and complexity corrections from the conversation. Never invent mistakes; if there were none, write "None recorded."
-- Write in the user's voice ("I"), short and concrete.
+- **My summary** is the user's own words and is never edited. **Mistakes** is the most important section written from the conversation: record real bugs and complexity corrections from the conversation. Never invent mistakes; if there were none, write "None recorded."
+- Write the other sections in the user's voice ("I"), short and concrete.
 - Pattern links are relative from the problem folder to the repo root (`../` × folder depth + 3 for `src/main/java`).
 
 ## Root index
@@ -107,6 +124,7 @@ If the problem taught a technique that applies across problems, add it to the ma
 - `javac -d <tmp> $(find src -name '*.java')` must succeed for the whole repo.
 - Run every new file's `main`; every line must match its expected value.
 - Every relative link in the new README resolves to an existing file or folder.
+- The "My summary" section matches the user's text exactly.
 
 ## Delivering
 
