@@ -20,10 +20,12 @@ patterns/                             ← techniques that apply across problems
 
 ## How to revise
 
-1. Skim the **Key idea** column below and try to recall the recurrence.
-2. Open the problem's README and read **Mistakes I made** — those are the parts most likely to be forgotten.
+1. Without looking at anything, write a short summary from memory (key idea, state and recurrence, the mistake I'm most likely to repeat).
+2. Compare it with the problem README — first my own **My summary**, then **Key idea** and **Mistakes I made**.
 3. Re-solve from a blank file, then compare.
 4. Read the [patterns](patterns/) notes before a session on a new category.
+
+Every problem README has a **My summary** section written by me from memory, unedited. Problems solved before this convention get theirs during their first revision.
 
 ## Patterns
 
@@ -100,6 +102,6 @@ Skills in [`.claude/skills/`](.claude/skills/) (also saved to my Claude account,
 
 | Skill | Say | What it does |
 |---|---|---|
-| [`dsa-repo-entry`](.claude/skills/dsa-repo-entry/SKILL.md) | "add this to my repo" | Creates the problem folder, solution files with example `main`s, the README and the row in this index |
-| [`dsa-revise`](.claude/skills/dsa-revise/SKILL.md) | "let's revise" / "quiz me on knapsack" | Active-recall quiz from my own READMEs and Mistakes sections; logs scores in `revision-log.md` |
+| [`dsa-repo-entry`](.claude/skills/dsa-repo-entry/SKILL.md) | "add this to my repo" | Asks for my own summary first, then creates the problem folder, solution files with example `main`s, the README and the row in this index |
+| [`dsa-revise`](.claude/skills/dsa-revise/SKILL.md) | "let's revise" / "quiz me on knapsack" | Summary from memory first, then an active-recall quiz from my READMEs and Mistakes sections; saves my summary and logs scores in `revision-log.md` |
 | [`dsa-mock`](.claude/skills/dsa-mock/SKILL.md) | "mock interview, sequence DP, 45 min" | Timed interview on an unseen problem with one hint max, then a scorecard |
