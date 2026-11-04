@@ -1,5 +1,7 @@
 # Working out time and space complexity
 
+Quick reference. For the full step-by-step method (which method to use for which code shape, how to write and solve recurrences, amortised and graph analysis, and a README template), see [how-to-compute-complexity.md](how-to-compute-complexity.md).
+
 ## Naive recursion: (branches) ^ (depth)
 
 **Depth** = the longest path from the first call to a base case. Look at what **each** branch decreases and by how much.

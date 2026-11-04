@@ -35,7 +35,8 @@ Every problem README has a **My summary** section written by me from memory, une
 | [Memoization checklist](patterns/memoization.md) | cache key, table size, sentinels, memo-check placement, memo → tab conversion |
 | [Space optimisation](patterns/space-optimisation.md) | two arrays, loop direction for one array, the diagonal variable |
 | [Reused arrays](patterns/reused-arrays.md) | why every cell must be written each row; swapping vs assigning |
-| [Complexity](patterns/complexity.md) | branches^depth, recurrences like T(m) = 3·T(m−1), states × work per state |
+| [How to compute complexity](patterns/how-to-compute-complexity.md) | step-by-step method for any problem: choosing the method, loop counting, recurrences, master theorem, states × work, amortised, graphs, space |
+| [Complexity](patterns/complexity.md) | quick reference: branches^depth, recurrences like T(m) = 3·T(m−1), states × work per state |
 
 ## Problems
 

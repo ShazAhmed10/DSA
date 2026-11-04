@@ -36,7 +36,7 @@ After the summary, ask only about what it left out or got wrong, one question at
 2. What are the choices and the recurrence?
 3. Base case(s) and where the answer is?
 4. Tabulation fill order, and the space-optimisation trick (loop direction / diagonal variable / what resets per row)?
-5. TC and SC of naive, memo, tab, space-optimised?
+5. TC and SC of naive, memo, tab, space-optimised — **and how you got each**: which method (loop counting, branches^depth, recurrence, states × work per state) and why that method fits. A correct answer with no derivation counts as unrecalled; ask for the reasoning.
 
 Rules:
 - Follow the user's hint preference: if they're stuck, give **one** nudge that points their thinking, not the answer; give another only after they've used it.
@@ -44,7 +44,7 @@ Rules:
 - Then ask one **"what goes wrong if..."** question built from a real entry in their "Mistakes I made" section (e.g. "In the single-array version, what breaks if you loop forwards?"). Never invent mistakes.
 - Optional: offer "Want to code it from a blank file?" If yes, they write it; check it against the examples in the problem's `main` (run it if a shell is available).
 
-Score each problem: **Solid** (recalled state, recurrence, base cases and complexity with at most one nudge), **Shaky** (needed several nudges or got one part wrong), **Forgot** (couldn't reconstruct the state).
+Score each problem: **Solid** (recalled state, recurrence, base cases and complexity **with its derivation** with at most one nudge), **Shaky** (needed several nudges or got one part wrong), **Forgot** (couldn't reconstruct the state).
 
 ## 5. Save the summary
 
@@ -56,6 +56,7 @@ Score each problem: **Solid** (recalled state, recurrence, base cases and comple
 
 - One-line summary per problem with its score and the single thing to remember.
 - Patterns to reread: link the matching `/patterns/*.md` note for anything that was Shaky or Forgot.
+- If the complexity reasoning was the weak part, point to the matching method in `patterns/how-to-compute-complexity.md`.
 - Update `revision-log.md` at the repo root (create it if missing) with one row per problem:
 
   `| <YYYY-MM-DD> | <Problem> | <Solid/Shaky/Forgot> | <one-line note> |`

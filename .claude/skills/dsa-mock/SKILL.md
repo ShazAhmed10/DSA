@@ -22,7 +22,7 @@ Expected flow; nudge the user back into it if they skip a step:
 3. Better approach, explained in words before coding
 4. Code
 5. Dry run on an example and edge cases
-6. Final TC/SC
+6. Final TC/SC, with how they were derived (which method and why)
 
 Interviewer rules:
 - Don't confirm whether an approach is right while they're still reasoning; ask probing questions instead ("What's the state?", "Why does that work?", "What happens for n = 1?").
@@ -36,7 +36,7 @@ Interviewer rules:
 Scorecard (1–4 each, with one line of evidence):
 - Problem understanding & clarifying questions
 - Approach & correctness
-- Complexity analysis
+- Complexity analysis (correct result **and** a sound derivation: right method for the code's shape, branches/depth or recurrence or states × work)
 - Code quality (naming, structure, edge cases)
 - Communication (explained before coding, thought out loud)
 - Time management
