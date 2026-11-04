@@ -24,7 +24,7 @@ Collect from the conversation:
 - Problem name, platform number and link if known, statement, examples, constraints
 - The user's FINAL accepted code for every approach (naive, memo, tabulation, space-optimised, alternative approaches). Use the user's code, not your own rewrites. Never include a version that was later found to be wrong.
 - The key insight, state definition, recurrence, base cases, answer cell, tabulation fill order
-- Final TC/SC per approach, with corrected values if the user's first estimate was wrong
+- Final TC/SC per approach, with corrected values if the user's first estimate was wrong, **and how each was derived**: which method (loop counting, branches^depth, recurrence, states × work per state, amortised, graph V+E), why that method fits the code, and the derivation (branches/depth/what shrinks, or the recurrence and its first few values, or the state count and work per state)
 - Every mistake the user made along the way, what fixed it, and the failing input if one was found
 
 If the category or difficulty folder is unclear, ask once.
@@ -40,6 +40,7 @@ src/main/java/<Topic>/<Sheet>/<Category>/<Difficulty>/P<NN>_<ProblemName>/
     Da_TabulationSpaceOptimisation.java    (Da/Db/Dc for several variants)
 ```
 
+- Example: `DynamicProgramming/Blind_180/C_Sequence/B_Hard/P02_WildcardMatching/`
 - Existing DP categories: `DynamicProgramming/Blind_180/{A_Knapsack, B_State_Transition, C_Sequence, D_Interval}/{A_Medium, B_Hard}`. A new category gets the next letter prefix.
 - `NN` = next number in that difficulty folder, zero-padded (look at the existing `P..` folders).
 - Several approaches: prefix `Approach1_`, `Approach2_`. Brute force before recursion: `Aa_IterativeNaive`, `Ab_RecursiveNaive`.
@@ -92,7 +93,11 @@ Each file has a `main` that runs the examples and prints actual vs expected.
 |---|---|---|
 <one row per file; memo SC = table + stack>
 
-<derivation for any non-obvious TC: branches^depth, recurrence subtraction, states × work per state>
+### How I got these
+- **Naive — method: <loop counting / branches^depth / recurrence>** because <why this method fits the code's shape>. <branches, depth and what shrinks — or the recurrence, its first few values and the pattern>. Work per call: <loops + helpers> → total <…>.
+- **Memoization / tabulation — method: states × work per state.** States: <parameters and ranges>. Work per state: <loop/helper cost; child calls are O(1) lookups>.
+- **Space-optimised:** <what is kept and why that is enough>.
+- **Space:** <table> + <stack depth and why>.
 
 ## Mistakes I made
 1. **<mistake>** — <why it was wrong, failing input> → <fix>
@@ -103,7 +108,9 @@ Each file has a `main` that runs the examples and prints actual vs expected.
 ~~~
 
 Rules:
-- **My summary** is the user's own words and is never edited. **Mistakes** is the most important section written from the conversation: record real bugs and complexity corrections from the conversation. Never invent mistakes; if there were none, write "None recorded."
+- **My summary** is the user's own words and is never edited. **Mistakes** is the most important section written from the conversation: record real bugs and complexity corrections. Never invent mistakes; if there were none, write "None recorded."
+- **Complexity must always include "How I got these"**: for every approach, name the method from `patterns/how-to-compute-complexity.md` in the repo, say why that method fits (e.g. "recurrence, because each call has a different number of children, so branches^depth would overestimate"), and show the derivation. Use the user's own derivation from the conversation where there was one. No bare results.
+- Wrong complexity estimates the user made (and the corrected reasoning) go in **Mistakes I made**.
 - Write the other sections in the user's voice ("I"), short and concrete.
 - Pattern links are relative from the problem folder to the repo root (`../` × folder depth + 3 for `src/main/java`).
 
@@ -113,7 +120,7 @@ Add one row to the right table in the root `README.md` (create the table if the 
 
 | # | Problem | Level | Key idea | TC | SC | Revisit |
 
-Link the problem name to its folder. Escape `|` in key ideas as `\|`. Put follow-ups in Revisit.
+Link the problem name to its folder. Escape `|` in key ideas as `\|`. Put follow-ups in Revisit (e.g. "O(n log n) with binary search").
 
 ## Patterns
 
@@ -123,8 +130,10 @@ If the problem taught a technique that applies across problems, add it to the ma
 
 - `javac -d <tmp> $(find src -name '*.java')` must succeed for the whole repo.
 - Run every new file's `main`; every line must match its expected value.
+- Package lines match folder paths.
 - Every relative link in the new README resolves to an existing file or folder.
 - The "My summary" section matches the user's text exactly.
+- Every approach in the Complexity table has a matching "How I got these" line naming its method and the reason.
 
 ## Delivering
 
