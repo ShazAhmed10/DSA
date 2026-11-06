@@ -61,5 +61,5 @@ Score each problem: **Solid** (recalled state, recurrence, base cases and comple
 
   `| <YYYY-MM-DD> | <Problem> | <Solid/Shaky/Forgot> | <one-line note> |`
 
-- With push access, ask once whether to commit the summaries and the log (`Revision: <date>`) on a branch and open a pull request; otherwise give the text to paste and the exact paths.
+- With push access, ask once whether to commit the summaries and the log (`Revision: <date>`). If yes: branch from the latest `main` as `revision-<YYYY-MM-DD>`, open a pull request into `main`, and assign it to the user (`gh api -X POST repos/ShazAhmed10/DSA/issues/<number>/assignees -f 'assignees[]=ShazAhmed10'`). Never push to `main` or merge yourself. Otherwise give the text to paste and the exact paths.
 - Suggest when to revisit: Forgot → in 2 days, Shaky → in a week, Solid → in 3 weeks.

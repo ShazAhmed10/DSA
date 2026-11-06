@@ -18,3 +18,8 @@ Java 21, Maven. One folder per problem under `src/main/java/<Topic>/<Sheet>/<Cat
 
 - `javac -d /tmp/dsa-out $(find src -name '*.java')` must succeed.
 - Run the `main` of every new or changed file; all outputs must match expected.
+
+## Branches and pull requests
+
+- One short-lived branch per change, from the latest `main`: `add-<problem-slug>`, `revision-<date>`, or a short description for repo changes.
+- Open a pull request into `main` and assign it to ShazAhmed10. Never push to `main` directly or merge.
