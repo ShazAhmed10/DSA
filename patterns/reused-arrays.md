@@ -16,3 +16,6 @@ In a full 2D table, a cell you don't write is still 0 / false. Once arrays are *
 | Wildcard (index 0 not reset) | `s = "aaa"`, `p = "a"` → true |
 | Wildcard (mismatch not written) | `s = "aab"`, `p = "*a"` → true |
 | Last Stone II (index 0 only in one array) | first stone unusable after a swap |
+| Palindrome Partitioning II (mismatch not written) | `"abb"` → 0 |
+| Palindrome Partitioning II (cleared without swapping) | `"aba"` → 2 |
+| Palindrome Partitioning II (`ahead = curr`, then cleared `curr`) | the previous row was wiped too |

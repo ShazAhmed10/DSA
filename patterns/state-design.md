@@ -9,6 +9,8 @@ Before writing code, answer in words:
 
 If something changes but isn't a parameter, it's a bug waiting to happen.
 
+The reverse also holds: if a parameter has the same value in every call (Palindrome Partitioning II's `end`), it isn't part of the state.
+
 ## Recurring state shapes
 
 | Shape | Meaning | Answer | Examples |
@@ -34,6 +36,7 @@ The same indices can mean "ways to **reach** here" (forward: base `dp[0][0] = 1`
 | Assign + / − to every number | Count subsets with sum `(total + target) / 2` |
 | Longest palindromic subsequence | LCS(s, reverse(s)) |
 | Order of combining (parentheses) | Split on the **last** operation → interval DP |
+| Split into pieces that each satisfy a property, minimise pieces/cuts | 1D dp on the start index: first piece + best for the rest, with a precomputed table for the property (Palindrome Partitioning II) |
 
 ## Pick / not pick vs "choose what comes next"
 
