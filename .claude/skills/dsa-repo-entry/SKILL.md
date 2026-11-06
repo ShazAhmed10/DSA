@@ -13,10 +13,17 @@ Before writing anything, check whether the user has written their own summary of
 
 > Before I add it: write 4–6 lines from memory, without scrolling up — the key idea that unlocked it, the state and recurrence in your own words, the mistake you're most likely to repeat, and what would help you recognise this pattern next time.
 
-Rules for the summary:
-- **Never write it for the user**, offer a draft, or fill in parts they left out. If they ask you to write it, explain briefly that writing it themselves is the point, and wait.
-- Include it in the README **word for word**, under "My summary" — no polishing, rephrasing or grammar fixes.
-- After they write it, point out only what is **wrong** or **missing** compared with the conversation (in your reply, not in the README). If they choose to revise it, use their revised words.
+After the user writes it, review it and complete it:
+
+1. **Point out, in your reply, what is wrong or missing** compared with the conversation. Check for: the key insight, the state and recurrence, base cases and why they have those values, fill order / space-optimisation trick, how the complexity was derived, the mistake most likely to repeat, and how to recognise the pattern. Name each gap briefly.
+2. **Produce the completed summary** by modifying theirs:
+   - Keep the user's own sentences and wording wherever they are correct. Don't polish style, tone or grammar of their sentences.
+   - Correct statements that are wrong, and mark each corrected sentence with *(corrected)* at its end.
+   - Add the missing points as short sentences in the user's voice ("I", plain wording), placed where they fit, each marked with *(added)* at its end.
+   - Keep it a summary: aim for the user's length plus one short sentence per gap.
+3. **Show the completed summary in your reply before writing the README**, and ask once whether to use it or change anything. Use whatever version the user confirms.
+
+Never write the summary from scratch: always start from the user's text. If the user hasn't written one, ask for it and wait.
 
 ## Before writing anything else
 
@@ -64,9 +71,9 @@ Match the existing problem READMEs exactly:
 
 ## My summary
 
-> Written by me from memory right after solving, unedited.
+> Written by me from memory right after solving. Additions and corrections from review are marked *(added)* / *(corrected)*.
 
-<the user's summary, word for word>
+<the completed summary the user confirmed>
 
 ## Solutions
 
@@ -108,7 +115,7 @@ Each file has a `main` that runs the examples and prints actual vs expected.
 ~~~
 
 Rules:
-- **My summary** is the user's own words and is never edited. **Mistakes** is the most important section written from the conversation: record real bugs and complexity corrections. Never invent mistakes; if there were none, write "None recorded."
+- **My summary** is the user's text, completed as described in Step 0, with every addition or correction marked. **Mistakes** is the most important section written from the conversation: record real bugs and complexity corrections. Never invent mistakes; if there were none, write "None recorded."
 - **Complexity must always include "How I got these"**: for every approach, name the method from `patterns/how-to-compute-complexity.md` in the repo, say why that method fits (e.g. "recurrence, because each call has a different number of children, so branches^depth would overestimate"), and show the derivation. Use the user's own derivation from the conversation where there was one. No bare results.
 - Wrong complexity estimates the user made (and the corrected reasoning) go in **Mistakes I made**.
 - Write the other sections in the user's voice ("I"), short and concrete.
@@ -132,10 +139,14 @@ If the problem taught a technique that applies across problems, add it to the ma
 - Run every new file's `main`; every line must match its expected value.
 - Package lines match folder paths.
 - Every relative link in the new README resolves to an existing file or folder.
-- The "My summary" section matches the user's text exactly.
+- The "My summary" section matches the completed summary the user confirmed, and every added or corrected sentence is marked.
 - Every approach in the Complexity table has a matching "How I got these" line naming its method and the reason.
 
 ## Delivering
 
-- With push access: commit on a branch `add-<problem-slug>` with message `<Sheet> - Problem <N> - <Category>_<Difficulty> : <Problem Name>` (the user's existing style) and open a pull request.
+- With push access:
+  - Branch from the latest `main` (`git fetch origin main`), one short-lived branch per change, named `add-<problem-slug>`.
+  - Commit with message `<Sheet> - Problem <N> - <Category>_<Difficulty> : <Problem Name>` (the user's existing style, e.g. `Blind 180 - Problem 20 - DP_Interval_Hard : Palindrome Partitioning II`).
+  - Open a pull request into `main` with that title, then **assign it to the user** (`ShazAhmed10`): `gh api -X POST repos/ShazAhmed10/DSA/issues/<number>/assignees -f 'assignees[]=ShazAhmed10'`. (A review request isn't possible because the PR is authored under the user's own account; the assignment is what puts it in their queue.)
+  - Never push to `main` directly and never merge the PR yourself.
 - Otherwise: build the folder in the workspace, zip it, and send the zip plus the index row, naming the exact path where it goes.
