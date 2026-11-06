@@ -78,6 +78,7 @@ Every problem README has a **My summary** section written by me from memory, une
 | # | Problem | Level | Key idea | TC | SC | Revisit |
 |---|---|---|---|---|---|---|
 | 1 | [Matrix Chain Multiplication](src/main/java/DynamicProgramming/Blind_180/D_Interval/B_Hard/P01_MatrixChainMultiplication/) | Hard | Split on the last multiplication k: f(l,k) + f(k,r) + nums[l]·nums[k]·nums[r], min over k | O(n³) | O(n²) | Burst Balloons, Min Cost to Cut a Stick (same pattern) |
+| 2 | [Palindrome Partitioning II](src/main/java/DynamicProgramming/Blind_180/D_Interval/B_Hard/P02_PalindromePartitioningII/) | Hard | f(start) = min over palindromic s[start..end] of 1 + f(end+1), f(n) = −1; palindrome table isPal[s][e] = ends match && (inside empty \|\| isPal[s+1][e−1]) | O(n²) | O(n) | |
 
 ### Dynamic Programming · Striver A2Z · OneDimension DP
 
