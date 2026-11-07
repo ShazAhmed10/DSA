@@ -46,4 +46,5 @@ Then:
 - What went well (2 points), what to improve (3 concrete points).
 - The intended approach, briefly, if they didn't reach it.
 - The real problem name and link.
-- Offer to add it to the repo with the `dsa-repo-entry` skill, recording mistakes from this session in its README.
+- Offer to add it to the repo with the `dsa-repo-entry` skill, recording mistakes from this session in its README. Pass along the scorecard average, so the entry's Next due in `revision-log.md` follows the mock rule (average ≤ 2 / 3 / 4 → Forgot / Shaky / Solid).
+- If the problem is already in the repo, add a History row with source `mock` to `revision-log.md`, update its Queue row by the same rule, and sync with the planner as [planner-sync.md](../../../planner-sync.md) describes.

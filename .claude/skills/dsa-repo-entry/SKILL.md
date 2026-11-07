@@ -133,6 +133,11 @@ Link the problem name to its folder. Escape `|` in key ideas as `\|`. Put follow
 
 If the problem taught a technique that applies across problems, add it to the matching file in `/patterns/` (state-design, memoization, space-optimisation, reused-arrays, complexity) or create a new one and list it in the root README's Patterns table.
 
+## Revision log and planner
+
+- Add one row to the Queue in `revision-log.md`: ID, linked Problem, Topic, Folder, First solved = today, Last revised `—`, Result `—`, Next due = today + 3 days, Reason `Day-3 re-solve`. If the problem came from a `dsa-mock` session, instead set Next due from the mock rule in that file and add a History row with source `mock`.
+- Then sync with the planner as [planner-sync.md](../../../planner-sync.md) describes: pull, then push. Set `sheet_name` to the problem's Striver 180 title if it's from that sheet, so the planner ticks it off in its DSA list.
+
 ## Verify before delivering
 
 - `javac -d <tmp> $(find src -name '*.java')` must succeed for the whole repo.
@@ -141,6 +146,7 @@ If the problem taught a technique that applies across problems, add it to the ma
 - Every relative link in the new README resolves to an existing file or folder.
 - The "My summary" section matches the completed summary the user confirmed, and every added or corrected sentence is marked.
 - Every approach in the Complexity table has a matching "How I got these" line naming its method and the reason.
+- `revision-log.md` has a Queue row for the new problem, and the planner sync ran (or you said why it couldn't).
 
 ## Delivering
 

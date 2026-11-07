@@ -11,12 +11,13 @@ Quiz the user on problems they have already solved, using their own notes in git
 
 - If a shell is available: `git clone --depth 1 https://github.com/ShazAhmed10/DSA` (public repo).
 - Otherwise read the project's synced repo files, the GitHub page for the repo, or ask the user to paste the problem's README.
-- Read the root `README.md` index (tables of problems with key idea, TC/SC, Revisit) and `revision-log.md` if it exists.
+- Read the root `README.md` index (tables of problems with key idea, TC/SC, Revisit) and `revision-log.md`.
+- Pull re-solves ticked in the planner into `revision-log.md` first (Step 1 of [planner-sync.md](../../../planner-sync.md)), so the Queue is current.
 
 ## 2. Pick problems
 
 - If the user names a category or problems, use those.
-- Otherwise pick 3: problems never revised first, then the oldest last-revised, preferring ones whose README has a long "Mistakes I made" section or a previous "Shaky"/"Forgot" score.
+- Otherwise pick 3 from the Queue in `revision-log.md` whose Next due is today or earlier, oldest due first. If fewer than 3 are due, fill with problems never revised, then the oldest last-revised, preferring ones whose README has a long "Mistakes I made" section or a previous "Shaky"/"Forgot" score.
 - Say which problems you picked in one line, then start with the first.
 
 ## 3. Summary first (from memory)
@@ -57,9 +58,10 @@ Score each problem: **Solid** (recalled state, recurrence, base cases and comple
 - One-line summary per problem with its score and the single thing to remember.
 - Patterns to reread: link the matching `/patterns/*.md` note for anything that was Shaky or Forgot.
 - If the complexity reasoning was the weak part, point to the matching method in `patterns/how-to-compute-complexity.md`.
-- Update `revision-log.md` at the repo root (create it if missing) with one row per problem:
-
-  `| <YYYY-MM-DD> | <Problem> | <Solid/Shaky/Forgot> | <one-line note> |`
+- Update `revision-log.md` for each problem:
+  - add a History row: `| <YYYY-MM-DD> | <Problem> | <Solid/Shaky/Forgot> | revise | <one-line note> |`
+  - update its Queue row: Last revised = today, Result = the score, Next due and Reason from the rules at the top of that file.
+- Push the Queue to the planner (Step 2 of [planner-sync.md](../../../planner-sync.md)), so the next due dates appear in the planner's revision slot.
 
 - With push access, ask once whether to commit the summaries and the log (`Revision: <date>`). If yes: branch from the latest `main` as `revision-<YYYY-MM-DD>`, open a pull request into `main`, and assign it to the user (`gh api -X POST repos/ShazAhmed10/DSA/issues/<number>/assignees -f 'assignees[]=ShazAhmed10'`). Never push to `main` or merge yourself. Otherwise give the text to paste and the exact paths.
-- Suggest when to revisit: Forgot → in 2 days, Shaky → in a week, Solid → in 3 weeks.
+- Tell the user each problem's next due date; the planner will show it in the revision slot that day.
