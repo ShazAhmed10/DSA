@@ -12,7 +12,7 @@ Quiz the user on problems they have already solved, using their own notes in git
 - If a shell is available: `git clone --depth 1 https://github.com/ShazAhmed10/DSA` (public repo).
 - Otherwise read the project's synced repo files, the GitHub page for the repo, or ask the user to paste the problem's README.
 - Read the root `README.md` index (tables of problems with key idea, TC/SC, Revisit) and `revision-log.md`.
-- Pull re-solves ticked in the planner into `revision-log.md` first (Step 1 of [planner-sync.md](../../../planner-sync.md)), so the Queue is current.
+- Pull re-solves ticked in the planner into `revision-log.md` first (Step 1 of `planner-sync.md` at the repo root), so the Queue is current.
 
 ## 2. Pick problems
 
@@ -61,7 +61,6 @@ Score each problem: **Solid** (recalled state, recurrence, base cases and comple
 - Update `revision-log.md` for each problem:
   - add a History row: `| <YYYY-MM-DD> | <Problem> | <Solid/Shaky/Forgot> | revise | <one-line note> |`
   - update its Queue row: Last revised = today, Result = the score, Next due and Reason from the rules at the top of that file.
-- Push the Queue to the planner (Step 2 of [planner-sync.md](../../../planner-sync.md)), so the next due dates appear in the planner's revision slot.
-
+- Push the Queue to the planner (Step 2 of `planner-sync.md` at the repo root), so the next due dates appear in the planner's revision slot.
 - With push access, ask once whether to commit the summaries and the log (`Revision: <date>`). If yes: branch from the latest `main` as `revision-<YYYY-MM-DD>`, open a pull request into `main`, and assign it to the user (`gh api -X POST repos/ShazAhmed10/DSA/issues/<number>/assignees -f 'assignees[]=ShazAhmed10'`). Never push to `main` or merge yourself. Otherwise give the text to paste and the exact paths.
 - Tell the user each problem's next due date; the planner will show it in the revision slot that day.

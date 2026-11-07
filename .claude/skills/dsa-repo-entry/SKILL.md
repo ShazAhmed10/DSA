@@ -136,7 +136,7 @@ If the problem taught a technique that applies across problems, add it to the ma
 ## Revision log and planner
 
 - Add one row to the Queue in `revision-log.md`: ID, linked Problem, Topic, Folder, First solved = today, Last revised `—`, Result `—`, Next due = today + 3 days, Reason `Day-3 re-solve`. If the problem came from a `dsa-mock` session, instead set Next due from the mock rule in that file and add a History row with source `mock`.
-- Then sync with the planner as [planner-sync.md](../../../planner-sync.md) describes: pull, then push. Set `sheet_name` to the problem's Striver 180 title if it's from that sheet, so the planner ticks it off in its DSA list.
+- Then sync with the planner as `planner-sync.md` at the repo root describes: pull, then push. Set `sheet_name` to the problem's Striver 180 title if it's from that sheet, so the planner ticks it off in its DSA list.
 
 ## Verify before delivering
 
