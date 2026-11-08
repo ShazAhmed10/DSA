@@ -11,7 +11,7 @@ Any session that changes `revision-log.md` (adding a problem, a revision, a mock
 | Collection | Doc id | Written by | Fields |
 |---|---|---|---|
 | `revisions` | problem ID from the log | Claude | `problem`, `topic`, `path`, `first_solved`, `last_revised` (or `""`), `last_result` (or `""`), `due`, `reason`, `sheet_name` |
-| `reviews` | `<problem ID>_<YYYY-MM-DD>` | the planner page | `problem_id`, `date`, `result` (`clean` or `struggled`) |
+| `reviews` | `<problem ID>_<YYYY-MM-DD>` | the planner page | `problem_id`, `date`, `result` (`clean` or `struggled`), optional `note` (what went wrong, one line) |
 | `units` | planner task id | the planner page | `done`, `on` |
 
 `sheet_name` is the problem's title on Striver's 180 sheet when it's from that sheet (for example `Kadane's Algorithm`), otherwise `""`. The planner uses it to tick that problem off in its DSA list automatically.
@@ -20,7 +20,8 @@ Any session that changes `revision-log.md` (adding a problem, a revision, a mock
 
 1. `ArtifactData` `list` on collection `reviews` (page with `query.cursor` until done).
 2. For each review whose `date` is later than the problem's **Last revised** in the Queue (or which is the problem's first, when Last revised is `—`):
-   - Add a History row: `| <date> | <Problem> | Clean → Solid` or `Struggled → Shaky` ` | planner | re-solved in the planner |`.
+   - Add a History row: `| <date> | <Problem> | Clean → Solid` or `Struggled → Shaky` ` | planner | <the review's note, or "re-solved in the planner"> |`.
+   - If a Struggled review has a note, also tell the user in one line, and offer to add it to that problem's README under "Mistakes I made" if it's a new kind of mistake.
    - Update the Queue row: Last revised = review date, Result = Solid or Shaky, Next due and Reason per the rules in `revision-log.md`.
 3. Leave the `reviews` documents in place; the date comparison keeps them from being counted twice.
 
