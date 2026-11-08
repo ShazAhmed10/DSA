@@ -27,7 +27,8 @@ Any session that changes `revision-log.md` (adding a problem, a revision, a mock
 ## Step 2: push the Queue to the planner
 
 1. `ArtifactData` `list` on collection `revisions` to get each existing document's `version`.
-2. One `ArtifactData` `batch` (up to 50 writes per call) of `set` writes, one per Queue row that is new or changed, with `if_version` for documents that already exist. Only write rows whose values differ.
+2. One `ArtifactData` `batch` (up to 50 writes per call) of `set` writes, one per Queue row that is new or changed, with `if_version` for documents that already exist. Only write rows whose values differ. In the same batch, `delete` (with `if_version`) any `revisions` document whose ID is not in the Queue, such as a problem moved to Parked.
+   Only the **Queue** syncs. Rows in **Parked** never go to the planner.
 3. If a write fails on `if_version`, re-read that document and redo just that write.
 
 Then commit `revision-log.md` with the rest of the session's changes, on its branch, with a pull request assigned to ShazAhmed10, as `CLAUDE.md` describes.

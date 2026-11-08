@@ -135,7 +135,9 @@ If the problem taught a technique that applies across problems, add it to the ma
 
 ## Revision log and planner
 
-- Add one row to the Queue in `revision-log.md`: ID, linked Problem, Topic, Folder, First solved = today, Last revised `—`, Result `—`, Next due = today + 3 days, Reason `Day-3 re-solve`. If the problem came from a `dsa-mock` session, instead set Next due from the mock rule in that file and add a History row with source `mock`.
+- If the problem is from Striver's Blind 180 sheet (its folder is under `Blind_180`), add one row to the Queue in `revision-log.md`: ID, linked Problem, Topic, Folder, First solved = today, Last revised `—`, Result `—`, Next due = today + 3 days, Reason `Day-3 re-solve`. If it came from a `dsa-mock` session, instead set Next due from the mock rule in that file and add a History row with source `mock`.
+- Otherwise add it to the Parked table instead; Parked problems aren't scheduled or synced.
+- If the problem is already in Parked (a re-solve of an older problem), move its row into the Queue with Next due = today + 3 days.
 - Then sync with the planner as `planner-sync.md` at the repo root describes: pull, then push. Set `sheet_name` to the problem's Striver 180 title if it's from that sheet, so the planner ticks it off in its DSA list.
 
 ## Verify before delivering
