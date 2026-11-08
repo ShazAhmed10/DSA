@@ -25,6 +25,8 @@ patterns/                             ← techniques that apply across problems
 3. Re-solve from a blank file, then compare.
 4. Read the [patterns](patterns/) notes before a session on a new category.
 
+What to re-solve and when lives in [revision-log.md](revision-log.md); it syncs to my Personal Routine Planner ([planner-sync.md](planner-sync.md)), which shows the problems due each day.
+
 Every problem README has a **My summary** section written by me from memory, unedited. Problems solved before this convention get theirs during their first revision.
 
 ## Patterns
